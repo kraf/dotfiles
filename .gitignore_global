@@ -1,0 +1,13 @@
+node_modules
+*.swp
+*.log
+*.sqlite*
+*.zip
+*.tar.gz
+*.vim
+*.orig
+*.sublime-workspace
+*.rpm
+.ctrlp
+*~
+tmp*
