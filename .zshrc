@@ -29,9 +29,13 @@ function git_prompt_info() {
     echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
 }
 
+unsetopt beep
+unsetopt hist_beep
+unsetopt list_beep
+
 alias e='emacs -nw'
+
+export ALTERNATE_EDITOR=""
 
 export NVM_DIR="/home/filip.krasnianski/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
-export ALTERNATE_EDITOR=""
