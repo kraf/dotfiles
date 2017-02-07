@@ -1,3 +1,4 @@
+.DS_Store
 node_modules
 *.swp
 *.log
@@ -11,3 +12,4 @@ node_modules
 .ctrlp
 *~
 tmp*
+.tern-port

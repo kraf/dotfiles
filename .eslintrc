@@ -22,14 +22,23 @@
         "no-use-before-define": 0,
         "no-unused-vars": 2,
         "prefer-const": 1,
-        "semi": 2
+        "semi": 2,
+        
+        "react/jsx-uses-react": 1,
+        "react/jsx-uses-vars": 1,
+        "react/jsx-no-undef": 2,
+        "react/jsx-no-duplicate-props": 2,
+        "react/no-danger": 0,
+        "react/no-deprecated": 2
     },
 
-    "ecmaFeatures": {
-        "jsx": true
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        }
     },
 
     "plugins": [
-        "eslint-plugin-react"
+        "react"
     ]
 }

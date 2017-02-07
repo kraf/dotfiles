@@ -24,17 +24,22 @@ antigen apply
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 # make unslow
-function git_prompt_info() {
-    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
-    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
-}
+#function git_prompt_info() {
+#    ref=$(git symbolic-ref HEAD 2> /dev/null) || return
+#    echo "$ZSH_THEME_GIT_PROMPT_PREFIX${ref#refs/heads/}$ZSH_THEME_GIT_PROMPT_SUFFIX"
+#}
 
 unsetopt beep
 unsetopt hist_beep
 unsetopt list_beep
 
-alias e='emacs -nw'
+alias l='ls -la'
 
+export EDITOR="vim"
 export ALTERNATE_EDITOR=""
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+
+[ -f ~/.zsh_profile ] && source ~/.zsh_profile
+
+export PATH="$HOME/.yarn/bin:$PATH"
