@@ -9,7 +9,7 @@ antigen bundle lein
 antigen bundle command-not-found
 
 # others
-antigen bundle StackExchange/blackbox
+antigen bundle kubectl
 
 # Syntax highlighting bundle.
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -34,12 +34,10 @@ unsetopt hist_beep
 unsetopt list_beep
 
 alias l='ls -la'
+alias e='emacsclient -t'
+alias k='kubectl'
 
-export EDITOR="vim"
-export ALTERNATE_EDITOR=""
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-[ -f ~/.zsh_profile ] && source ~/.zsh_profile
-
-export PATH="$HOME/.yarn/bin:$PATH"
+source /home/filip/.config/broot/launcher/bash/br
