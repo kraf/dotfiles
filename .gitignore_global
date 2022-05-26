@@ -14,3 +14,7 @@ node_modules
 tmp*
 .tern-port
 .vscode/
+.clj-kondo/
+.lsp/
+.eastwood
+.irb_history
