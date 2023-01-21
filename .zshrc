@@ -1,3 +1,10 @@
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 source $HOME/src/github/antigen/antigen.zsh
 
 # Load the oh-my-zsh's library.
@@ -40,16 +47,8 @@ alias l='ls -la'
 alias e='emacsclient -t'
 alias k='kubectl'
 
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# 
-# # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-# export PATH="$PATH:$HOME/.rvm/bin"
-# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 
 alias branchlist="git for-each-ref --sort='-authordate' --format='%1B[0;34m%(refname:short)%1B[m ===> %1B[1;35m%(subject)' refs/heads | sed -e 's-refs/heads/--'"
 function branches() {
@@ -58,4 +57,14 @@ function branches() {
   if [[ $branch_name ]]; then
     echo $branch_name | awk '{print $1}' | xargs git checkout
   fi
-}
+
+. $HOME/.asdf/asdf.sh
+
+# Emacs tramp fix
+if [[ "$TERM" == "dumb" ]]
+then
+  unsetopt zle
+  unsetopt prompt_cr
+  unsetopt prompt_subst
+  PS1='$ '
+fi
